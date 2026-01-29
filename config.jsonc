@@ -1,0 +1,75 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "margin-top": 10,
+    "margin-left": 170,
+    "margin-right": 300,
+
+    "modules-left": ["custom/window", "hyprland/workspaces"],
+    "modules-center": ["clock", "network#wifi"],
+    "modules-right": ["pulseaudio", "battery"],
+
+    "custom/window": {
+        "format": "{}",
+        "max-length": 35,
+        "interval": 1,
+        "exec": "hyprctl activewindow -j | jq -r '.class' 2>/dev/null || echo 'Desktop'",
+        "exec-if": "command -v hyprctl",
+        "on-click": "playerctl play-pause 2>/dev/null"
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "today": "<span color='#89b4fa'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+        "sort-by-number": true,
+        "active-only": false,
+        "all-outputs": true,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity} 🔋%",
+        "format-charging": "{capacity}%",
+        "format-plugged": "{capacity}%",
+        "tooltip-format": "{timeTo}, {capacity}%"
+    },
+
+    "network#wifi": {
+        "format-wifi": "{essid}",
+        "format-ethernet": "Wired",
+        "format-disconnected": "Disconnected",
+        "tooltip-format": "{ipaddr} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "max-length": 20
+    },
+
+    "pulseaudio": {
+        "format": " 🔊 {volume}%",
+        "format-muted": "Muted",
+        "on-click": "pavucontrol",
+        "tooltip-format": "{desc}: {volume}%"
+    }
+}

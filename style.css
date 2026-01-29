@@ -1,0 +1,119 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Separate pills for each group */
+#custom-window {
+    background: rgb(20, 24, 32);
+    border-radius: 18px;
+    padding: 4px 16px;
+    margin: 0 8px;
+    color: #fab387;
+    min-width: 150px;
+}
+
+#workspaces {
+    background: rgb(20, 24, 32);
+    border-radius: 18px;
+    padding: 4px 8px;
+    margin: 0 8px;
+}
+
+#workspaces button {
+    min-width: 32px;
+    padding: 0 10px;
+    margin: 0 4px;
+    border-radius: 12px;
+    color: #4a5568;
+    background: transparent;
+    transition: color 0.3s ease;
+    border: none;
+}
+
+#workspaces button.active {
+    color: #89b4fa;
+    background: rgb(137, 180, 250);
+}
+
+#workspaces button:hover {
+    color: #6b8bb8;
+}
+
+/* Center pill with clock and wifi */
+.modules-center {
+    background: rgba(20, 24, 32, 0.85);
+    border-radius: 18px;
+    padding: 4px 16px;
+    margin: 0 8px;
+}
+
+#clock {
+    color: #a8b5d1;
+    padding: 0 8px;
+    min-width: 60px;
+}
+
+#network {
+    color: #7dcfff;
+    padding: 0 8px;
+    min-width: 80px;
+}
+
+#network.disconnected {
+    color: #f7768e;
+}
+
+/* Right pill with audio and battery */
+.modules-right {
+    background: rgba(20, 24, 32, 0.85);
+    border-radius: 18px;
+    padding: 4px 16px;
+    margin: 0 8px;
+}
+
+#pulseaudio {
+    color: #c0a5e8;
+    padding: 0 8px;
+    min-width: 60px;
+}
+
+#pulseaudio.muted {
+    color: #565f89;
+}
+
+#battery {
+    color: #9ece6a;
+    padding: 0 8px;
+    min-width: 60px;
+}
+
+#battery.charging {
+    color: #9ece6a;
+}
+
+#battery.warning:not(.charging) {
+    color: #e0af68;
+}
+
+#battery.critical:not(.charging) {
+    color: #f7768e;
+}
+
+tooltip {
+    background: rgba(20, 24, 32, 0.95);
+    border: 1px solid rgba(137, 180, 250, 0.3);
+    border-radius: 12px;
+    padding: 10px 14px;
+}
+
+tooltip label {
+    color: #a8b5d1;
+    font-weight: 500;
+}
